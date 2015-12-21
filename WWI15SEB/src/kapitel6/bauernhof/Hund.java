@@ -9,6 +9,17 @@ public class Hund extends Tier{
 		this.setRasse(rasse);
 	}
 	
+	@Override
+	public String toString(){
+		return super.toString() + ", " + this.getRasse();
+	}
+	
+	@Override
+	public void atmen(){
+		System.out.println("Der Hund atmet!");
+	}
+	
+	
 	public void bellen(){
 		System.out.println("Der Hund bellt!");
 	}
@@ -21,6 +32,13 @@ public class Hund extends Tier{
 		this.rasse = rasse;
 	}
 	
+	@Override
+	public void setGewicht(float gewicht) {
+		if(gewicht < 1.0f){
+			gewicht = 1.0f;
+		}
+		super.setGewicht(gewicht);
+	}
 	
 	
 }

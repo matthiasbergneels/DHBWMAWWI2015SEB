@@ -1,6 +1,6 @@
 package kapitel6.bauernhof;
 
-public class Tier {
+public abstract class Tier {
 	private float gewicht;
 	private String bezeichnung;
 	private float groesse;
@@ -11,15 +11,19 @@ public class Tier {
 		this.setGroesse(groesse);
 	}
 	
-	public void atmen(){
-		System.out.println("Das Tier atmet!");
+	@Override
+	public String toString(){
+		return "Das Tier: " + this.getBezeichnung() + 
+				", " + this.getGewicht() + ", " + this.getGroesse();
 	}
+	
+	public abstract void atmen();
 	
 	public void fressen(){
 		System.out.println("Das Tier frisst!");
 	}
 	
-	public void bewegen(){
+	public final void bewegen(){
 		System.out.println("Das Tier bewegt sich!");
 	}
 
