@@ -13,8 +13,8 @@ public class Alphabet {
 		char c;
 		System.out.println("Alphabet:");
 		for(char i = 'A'; i < 'Z' + 1; i++){
-			c = i;
-			System.out.print(c + " ");
+			//c = i;
+			System.out.print(i + " ");
 
 		}
 		
