@@ -5,13 +5,32 @@ public class BahnhofTest {
 	public static void main(String[] args) {
 		
 		
-		Fracht[] ladung = {new Fracht(), new Fracht(), new Fracht()};
+		Fracht[] ladung = {	new Fracht("Zeug", 1007.0, "Pappe"), 
+							new Fracht("Mehr Zeug", 678.0, "Plastik"), 
+							new Fracht("Flüssiges Zeug", 500.0, "Fass")};
 		
-		Wagon meinWagon = new Wagon();
+		Wagon meinWagon = new Wagon(1678, "Kastenwagon", (byte)6);
 		
 		meinWagon.setFracht(ladung);
 		
+		Lokomotive meineLok = new Lokomotive(1987, "Spezielle Lok", "Solar", (byte)10);
+		
+		Wagon[] wagons = {meinWagon};
+		Gueterzug meinZug = new Gueterzug(meineLok, wagons, 19892, 1);
+		
+		Gueterzug nochEinZug = new Gueterzug(1892, 3);
+		
+		
+		meinZug.setFahrer(new Zugfuehrer("Müller", "Klaus", 18982));
 
+		nochEinZug.fahren();
+		meinZug.fahren();
+		
+		System.out.println("Informationen über meinZug:");
+		System.out.println("Gueterzug: " + meinZug.getAnzWagons() + meinZug.getNummer());
+		System.out.println("Fahrer: " + meinZug.getFahrer().getName() + ", " + meinZug.getFahrer().getVorname());
+		System.out.println("Lokomotive: " + meinZug.getLok().getNummer() + ", " + meinZug.getLok().getAntrieb());
+	
 	}
 
 }
