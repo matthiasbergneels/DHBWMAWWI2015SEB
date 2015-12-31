@@ -2,11 +2,12 @@ package uebungen.kapitel5.bahnhof;
 
 public class Fracht {
 
-	private Wagon wagon;
+	private Gueterwagon wagon;
 	
-	private String bezeichnung;
-	private double menge;
-	private String verpackung;
+	protected String bezeichnung;
+	protected double menge;
+	protected String verpackung;
+	protected double volumen;
 	
 	public Fracht(String bezeichnung, double menge, String verpackung){
 		this.setBezeichnung(bezeichnung);
@@ -14,11 +15,11 @@ public class Fracht {
 		this.setVerpackung(verpackung);
 	}
 
-	public Wagon getWagon() {
+	public Gueterwagon getWagon() {
 		return wagon;
 	}
 
-	public void setWagon(Wagon wagon) {
+	public void setWagon(Gueterwagon wagon) {
 		this.wagon = wagon;
 	}
 
@@ -44,6 +45,14 @@ public class Fracht {
 
 	public void setVerpackung(String verpackung) {
 		this.verpackung = verpackung;
+	}
+
+	public double getVolumen() {
+		return volumen;
+	}
+
+	public void setVolumen(double volumen) {
+		this.volumen = volumen;
 	}
 	
 	

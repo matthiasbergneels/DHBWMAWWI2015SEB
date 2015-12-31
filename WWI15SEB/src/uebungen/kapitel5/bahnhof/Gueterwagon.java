@@ -1,6 +1,6 @@
 package uebungen.kapitel5.bahnhof;
 
-public class Wagon {
+public class Gueterwagon {
 
 	private Gueterzug zug;
 	private Fracht[] fracht;
@@ -9,7 +9,7 @@ public class Wagon {
 	private String typ;
 	private byte achsen;
 	
-	public Wagon(int nummer, String typ, byte achsen){
+	public Gueterwagon(int nummer, String typ, byte achsen){
 		this.setAchsen(achsen);
 		this.setMaxLast(achsen);
 		this.setTyp(typ);

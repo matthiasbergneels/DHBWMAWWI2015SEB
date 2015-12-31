@@ -1,6 +1,6 @@
 package uebungen.kapitel5.bahnhof;
 
-public class Lokomotive {
+public class Zuglokomotive {
 
 	private Gueterzug zug;
 	
@@ -9,7 +9,7 @@ public class Lokomotive {
 	private String antrieb;
 	private byte achsen;
 	
-	public Lokomotive(int nummer, String typ, String antrieb, byte achsen){
+	public Zuglokomotive(int nummer, String typ, String antrieb, byte achsen){
 		this.setAchsen(achsen);
 		this.setNummer(nummer);
 		this.setAntrieb(antrieb);

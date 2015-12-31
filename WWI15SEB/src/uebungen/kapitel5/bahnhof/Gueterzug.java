@@ -4,8 +4,8 @@ public class Gueterzug {
 	
 	private Zugfuehrer fahrer;
 	
-	private Lokomotive lok;
-	private Wagon[] wagons;
+	private Zuglokomotive lok;
+	private Gueterwagon[] wagons;
 	
 	
 	private int nummer;
@@ -13,7 +13,7 @@ public class Gueterzug {
 	private int anzWagons;
 
 
-	public Gueterzug(Lokomotive lok, Wagon[] wagons, int nummer, int anzWagons){
+	public Gueterzug(Zuglokomotive lok, Gueterwagon[] wagons, int nummer, int anzWagons){
 		
 		this.setAnzWagons(anzWagons);
 		this.setNummer(nummer);
@@ -34,11 +34,11 @@ public class Gueterzug {
 		this.fahrer = fahrer;
 	}
 	
-	public Lokomotive getLok() {
+	public Zuglokomotive getLok() {
 		return lok;
 	}
 
-	public void setLok(Lokomotive lok) {
+	public void setLok(Zuglokomotive lok) {
 		if(lok != null){
 			this.lok = lok;
 		}else{
@@ -50,11 +50,11 @@ public class Gueterzug {
 		
 	}
 
-	public Wagon[] getWagons() {
+	public Gueterwagon[] getWagons() {
 		return wagons;
 	}
 
-	public void setWagons(Wagon[] wagons) {
+	public void setWagons(Gueterwagon[] wagons) {
 		if(wagons != null){
 			this.wagons = wagons;
 		}else{
@@ -64,15 +64,15 @@ public class Gueterzug {
 		this.setAnzWagons(this.wagons.length);
 		
 		// bi-direktionale Beziehung setzen
-		for(Wagon wagon : this.wagons){
+		for(Gueterwagon wagon : this.wagons){
 			wagon.setZug(this);
 		}
 		
 	}
 	
-	public void setWagons(Wagon wagon){
+	public void setWagons(Gueterwagon wagon){
 		if(wagon != null){
-			Wagon[] wagons = {wagon};
+			Gueterwagon[] wagons = {wagon};
 			this.wagons = wagons;
 		}else{
 			this.wagons = erzeugeWagons(1);
@@ -111,15 +111,15 @@ public class Gueterzug {
 		this.anzWagons = anzWagons;
 	}
 	
-	private static Wagon[] erzeugeWagons(int anzahl){
-		Wagon[] wagons = new Wagon[anzahl];
+	private static Gueterwagon[] erzeugeWagons(int anzahl){
+		Gueterwagon[] wagons = new Gueterwagon[anzahl];
 		for(int i = 0; i < wagons.length; i++){
-			wagons[i] = new Wagon(1000 + i, "Kastenwagon", (byte)4);
+			wagons[i] = new Gueterwagon(1000 + i, "Kastenwagon", (byte)4);
 		}
 		return wagons;
 	}
 	
-	private static Lokomotive erzeugeLokomotive() {
-		return new Lokomotive(1234, "SuperLok", "Elektro", (byte)8);
+	private static Zuglokomotive erzeugeLokomotive() {
+		return new Zuglokomotive(1234, "SuperLok", "Elektro", (byte)8);
 	}
 }
