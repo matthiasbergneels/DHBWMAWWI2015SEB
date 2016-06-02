@@ -91,5 +91,14 @@ public class StudierendePerson implements Comparable<StudierendePerson>{
 		return this.getAlter() == o.getAlter();
 	}
 	
+	@Override
+	public int hashCode() {
+		
+		return this.getMatrikelnummer() 
+				^ ((this.getName() == null ) ? 0 : this.getName().hashCode()) 
+				^ ((this.getVorname() == null ) ? 0 : this.getVorname().hashCode()) 
+				^ this.getAlter();
+	}
+	
 
 }
