@@ -28,6 +28,17 @@ public class LinkedListTest {
 		System.out.println(students);
 		
 		students.printList();
+		
+		students.delete(6272);
+		students.delete(6666);
+		students.delete(1672);
+		students.delete(9999);
+		
+		
+		System.out.println();
+		
+		students.printList();
+		
 	}
 
 }

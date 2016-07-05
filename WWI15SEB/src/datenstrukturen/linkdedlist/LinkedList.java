@@ -33,7 +33,31 @@ public class LinkedList {
 			newNode.setNextNode(prevNode.getNextNode());
 			prevNode.setNextNode(newNode);
 		}
+	}
+	
+	public Studierenden delete(int matrikelNr){
 		
+		if(firstNode != null){
+			
+			Node n = firstNode;
+			if(n.getData().getMatrikelNr() == matrikelNr){
+				firstNode = firstNode.getNextNode();
+				return n.getData();
+			}
+			while(n.getNextNode() != null){
+				if(n.getNextNode().getData().getMatrikelNr() == matrikelNr){
+					Studierenden s = n.getNextNode().getData();
+					n.setNextNode(n.getNextNode().getNextNode());
+					return s;
+				}
+				n = n.getNextNode();
+			}
+			
+			
+		}
+		
+		
+		return null;
 	}
 	
 	public Studierenden find(int matrikelNr){
