@@ -33,6 +33,36 @@ public class Tree {
 		}
 	}
 	
+	public Studierenden find(int matrikelNr){
+		Studierenden s = null;
+		
+		if(root != null){
+			s = find(root, matrikelNr);
+		}
+		
+		return s;
+	}
+	
+	private Studierenden find(Node n, int matrikelNr){
+		
+		if(n.getData().getMatrikelNr() == matrikelNr){
+			return n.getData();
+		}
+		
+		if(n.getData().getMatrikelNr() > matrikelNr){
+			if(n.getLeftNode() != null){
+				return find(n.getLeftNode(), matrikelNr);
+			}
+		}else if(n.getData().getMatrikelNr() < matrikelNr){
+			if(n.getRightNode() != null){
+				return find(n.getRightNode(), matrikelNr);
+			}
+		}
+		
+		return null;
+	}
+	
+	
 	@Override
 	public String toString() {
 		String s = "";

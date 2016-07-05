@@ -14,6 +14,9 @@ public class TreeTest {
 
 		System.out.println(students);
 		
+		System.out.println("Find 6272: " + students.find(6272));
+		System.out.println("Find 9999: " + students.find(9999));
+		
 	}
 
 }
