@@ -49,6 +49,12 @@ public class SortAlgorithmTest {
 	public void selectionSortTest() {
 		assertTrue(isSorted(SortAlgorithm.selectionSort(toSort.clone())));
 	}
+	
+	@Test
+	public void quickSortTest() {
+		assertTrue(isSorted(SortAlgorithm.quickSort(toSort.clone())));
+	}
+
 
 	@After
 	public void tearDown() throws Exception {

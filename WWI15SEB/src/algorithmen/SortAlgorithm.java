@@ -47,6 +47,8 @@ public class SortAlgorithm {
 		return array;
 	}
 	
+	
+	
 	public static int[] insertionSortTwo(int[] array){
 		
 		long startTime = System.currentTimeMillis();
@@ -90,6 +92,49 @@ public class SortAlgorithm {
 		return array;
 	}
 	
+	public static int[] quickSort(int[] array){
+		long startTime = System.currentTimeMillis();
+		
+		quickSort(array, 0, array.length-1);
+		
+		long duration = System.currentTimeMillis() - startTime;
+		System.out.println("QuickSort Duration: \t" + duration + "ms");
+		return array;
+	}
+	
+	private static void quickSort(int[] array, int left, int right){
+		
+		int indexLeft = left;
+		int indexRight = right;
+		
+		if(left < right){
+			int pivot = array[(indexLeft + indexRight) / 2];
+			
+			while(indexLeft <= indexRight){
+				while(array[indexLeft] < pivot){
+					indexLeft++;
+				}
+				while(array[indexRight] > pivot){
+					indexRight--;
+				}
+				if(indexLeft <= indexRight){
+					swapElements(array, indexLeft, indexRight);
+					indexLeft++;
+					indexRight--;
+				}
+			}
+			
+			if(left < indexRight){
+				quickSort(array, left, indexRight);
+			}
+			if(indexLeft < right){
+				quickSort(array, indexLeft, right);
+			}
+			
+		}
+		
+	}
+	
 	
 	public static void main(String[] args) {
 		
@@ -105,6 +150,8 @@ public class SortAlgorithm {
 		System.out.println("Selection Sort: ");
 		printArray(selectionSort(toSort.clone()));
 		
+		System.out.println("Quick Sort: ");
+		printArray(quickSort(toSort.clone()));
 	}
 	
 	private static void printArray(int[] array){
